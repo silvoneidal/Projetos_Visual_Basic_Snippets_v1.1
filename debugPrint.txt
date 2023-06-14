@@ -1,0 +1,6 @@
+String debugPrint(String _strDado){
+	Serial.print("[");
+  	Serial.print(_strDado);
+  	Serial.println("]");
+
+}// end debugPrint

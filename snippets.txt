@@ -1,0 +1,11 @@
+piscaLed
+mediaAnalog
+debugPrint
+digitalWrite
+digitalRead
+Serial.print
+Serial.println
+namespace
+edit
+editar
+condicao_ternaria

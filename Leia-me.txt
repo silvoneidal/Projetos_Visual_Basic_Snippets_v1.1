@@ -1,0 +1,41 @@
+Atalho:
+Crie um atalho do executável para área de trabalho.
+
+Botão "Copiar [[]"
+Selecione um snippet na lista de snippets.
+Click no botão "Copiar"
+Será copiado o conteúdo do snippet selecionado para área de transferência
+Em seguida você deve usar o "Ctrl+V" do teclado para colar no local desejado.
+
+Botão "Snippets ->"
+Abre a configuração de snippets.
+
+Botão "Snippets <-"
+Fecha a configuração de snippets.
+
+Botão "Adicionar [+]"
+Crie ou cole o conteúdo para um novo snippet na caixa de texto.
+Click no botão "Adcionar"
+De um nome para o snippet na caixa de mensagem.
+Click "OK"
+Seu novo snippet aparecerá na lista de snippets.
+
+Botão "Remover [x]"
+Selecione um snippet na lista de snippets.
+Click no botão "Remover"
+Seu snippet desaparecerá da lista de snippets.
+
+Botão "Editar [-]"
+Selecione um snippet na lista de snippets.
+Click no botão "Editar"
+Será buscado o conteúdo do snippet selecionado.
+
+Botão "Salvar[=]"
+Faça as alterações necessárias no conteúdo do snippet
+Click no botão "Salvar"
+Seu snippet será atualizado com as alterações.
+
+*Todos os snippets serão criados na pasta deste projeto como um arquivo de texto.
+
+
+
