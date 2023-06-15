@@ -1,5 +1,5 @@
 String debugPrint(String _strDado){
-	Serial.print("["String(_strDado)"]");
+	Serial.print("[" + String(_strDado) + "]");
 
 }// end debugPrint
 
