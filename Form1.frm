@@ -5,7 +5,7 @@ Begin VB.Form Form1
    ClientHeight    =   11130
    ClientLeft      =   150
    ClientTop       =   495
-   ClientWidth     =   12135
+   ClientWidth     =   12150
    BeginProperty Font 
       Name            =   "Consolas"
       Size            =   9.75
@@ -19,26 +19,10 @@ Begin VB.Form Form1
    MaxButton       =   0   'False
    MinButton       =   0   'False
    ScaleHeight     =   11130
-   ScaleWidth      =   12135
-   Begin VB.CommandButton cmdSalvar 
-      Caption         =   "Salvar [=]"
-      Height          =   375
-      Left            =   10080
-      TabIndex        =   5
-      Top             =   10680
-      Width           =   2055
-   End
-   Begin VB.CommandButton cmdEditar 
-      Caption         =   "Editar[-]"
-      Height          =   375
-      Left            =   7920
-      TabIndex        =   4
-      Top             =   10680
-      Width           =   2055
-   End
+   ScaleWidth      =   12150
    Begin VB.TextBox txtMensagem 
       Appearance      =   0  'Flat
-      BackColor       =   &H00FFFFC0&
+      BackColor       =   &H0080FFFF&
       BeginProperty Font 
          Name            =   "Consolas"
          Size            =   8.25
@@ -49,16 +33,18 @@ Begin VB.Form Form1
          Strikethrough   =   0   'False
       EndProperty
       Height          =   495
-      Left            =   0
+      Left            =   120
       MultiLine       =   -1  'True
-      TabIndex        =   8
-      Top             =   10080
-      Width           =   3495
+      TabIndex        =   2
+      Top             =   10440
+      Width           =   3255
    End
    Begin VB.ListBox listSnippet 
-      Height          =   10635
+      BackColor       =   &H00000000&
+      ForeColor       =   &H00FFFFFF&
+      Height          =   11085
       Left            =   0
-      TabIndex        =   6
+      TabIndex        =   0
       Top             =   0
       Width           =   3495
    End
@@ -68,46 +54,51 @@ Begin VB.Form Form1
       Left            =   11400
       Top             =   10080
    End
-   Begin VB.CommandButton cmdSnippet 
-      Caption         =   "Snippet ->"
-      Height          =   375
-      Left            =   1800
-      TabIndex        =   1
-      Top             =   10680
-      Width           =   1695
-   End
-   Begin VB.CommandButton cmdCopiar 
-      Caption         =   "Copiar [[]"
-      Height          =   375
-      Left            =   -120
-      TabIndex        =   0
-      Top             =   10680
-      Width           =   1815
-   End
    Begin VB.TextBox txtSnippet 
-      Height          =   10635
+      BackColor       =   &H00000000&
+      ForeColor       =   &H00FFFFFF&
+      Height          =   11100
       Left            =   3480
       MultiLine       =   -1  'True
       ScrollBars      =   1  'Horizontal
-      TabIndex        =   7
+      TabIndex        =   1
       Top             =   0
       Width           =   8655
    End
-   Begin VB.CommandButton cmdRemover 
-      Caption         =   "Remover [x]"
-      Height          =   375
-      Left            =   5760
-      TabIndex        =   3
-      Top             =   10680
-      Width           =   2055
-   End
-   Begin VB.CommandButton cmdAdicionar 
-      Caption         =   "Adicionar [+]"
-      Height          =   375
-      Left            =   3600
-      TabIndex        =   2
-      Top             =   10680
-      Width           =   2055
+   Begin VB.Menu mMenu 
+      Caption         =   "Menu"
+      Begin VB.Menu mEditor 
+         Caption         =   "Editor"
+         Begin VB.Menu mSnippet 
+            Caption         =   "Snippet"
+         End
+         Begin VB.Menu mTexto 
+            Caption         =   "Texto"
+            Visible         =   0   'False
+            Begin VB.Menu mEditar 
+               Caption         =   "Editar"
+            End
+            Begin VB.Menu mSalvar 
+               Caption         =   "Salvar"
+            End
+            Begin VB.Menu mAdicionar 
+               Caption         =   "Adicionar"
+            End
+            Begin VB.Menu mRemover 
+               Caption         =   "Remover"
+            End
+         End
+      End
+      Begin VB.Menu mColor 
+         Caption         =   "Color"
+         Begin VB.Menu mBlack 
+            Caption         =   "Black"
+            Checked         =   -1  'True
+         End
+         Begin VB.Menu mWhite 
+            Caption         =   "White"
+         End
+      End
    End
 End
 Attribute VB_Name = "Form1"
@@ -117,9 +108,15 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
+Dim Color As String
+
 Private Sub Form_Load()
    ' Titulo do formulário
    Me.Caption = App.Title & "_v" & App.Major & "." & App.Minor & " by DALÇÓQUIO AUTOMAÇÃO"
+   
+   ' ToolTipText
+   listSnippet.ToolTipText = "Duplo click para copiar."
+   txtSnippet.ToolTipText = "Dublo click para menu."
    
    ' Mensagem de texto
    txtMensagem.Visible = False
@@ -135,9 +132,57 @@ Private Sub Form_Load()
    ' Ordem Alfabética para lista de snippets
    Call OrdenarListBoxAlfabeticamente(listSnippet)
    
+'Recupera os valores em config.ini
+   Color = ReadIniValue(App.Path & "\Config.ini", "VARIAVEIS", "Color")
+   
+   ' Atualiza Color do Formulário
+   If Color = "Black" Then Call mBlack_Click
+   If Color = "White" Then Call mWhite_Click
+   
 End Sub
 
-Private Sub cmdCopiar_Click()
+Private Sub mBlack_Click()
+   ' Color Black
+   mBlack.Checked = True
+   mWhite.Checked = False
+   Color = "Black"
+   listSnippet.BackColor = vbBlack ' cor de fundo
+   listSnippet.ForeColor = vbWhite  ' cor do texto
+   txtSnippet.BackColor = vbBlack ' cor de fundo
+   txtSnippet.ForeColor = vbWhite  ' cor do texto
+   WriteIniValue App.Path & "\Config.ini", "VARIAVEIS", "Color", Color
+   
+ End Sub
+ 
+Private Sub mWhite_Click()
+   ' Color White
+   mWhite.Checked = True
+   mBlack.Checked = False
+   Color = "White"
+   listSnippet.BackColor = vbWhite ' cor de fundo
+   listSnippet.ForeColor = vbBlack  ' cor do texto
+   txtSnippet.BackColor = vbWhite ' cor de fundo
+   txtSnippet.ForeColor = vbBlack  ' cor do texto
+   WriteIniValue App.Path & "\Config.ini", "VARIAVEIS", "Color", Color
+
+End Sub
+
+Private Sub mSnippet_Click()
+   If Me.Width = 3600 Then
+      Me.Width = 12250 ' open
+   Else
+      Me.Width = 3600 ' close
+      txtSnippet.Text = Empty
+   End If
+
+End Sub
+
+Private Sub txtSnippet_DblClick()
+   PopupMenu mTexto
+   
+End Sub
+
+Private Sub listSnippet_DblClick()
    ' Verifica se snippet selecionado
    If listSnippet.SelCount = 0 Then ' ou listSnippet.ListIndex >= 0
       MsgBox "Nenhum snippet selecionado para copiar", vbInformation, "DALÇÓQUIO AUTOMAÇÃO"
@@ -161,27 +206,15 @@ Private Sub cmdCopiar_Click()
    
 End Sub
 
-Private Sub cmdSnippet_Click()
-   If Me.Width = 3600 Then
-      Me.Width = 12250
-      cmdSnippet.Caption = "Snippet <-" ' open
-   Else
-      Me.Width = 3600
-      cmdSnippet.Caption = "Snippet ->" ' close
-      txtSnippet.Text = Empty
-   End If
+'Private Sub txtSnippets_DblClick()
+'   Dim projectPath As String
+'   projectPath = App.Path
+'
+'   Shell "explorer.exe " & projectPath, vbNormalFocus
+'
+'End Sub
 
-End Sub
-
-Private Sub txtSnippet_DblClick()
-   Dim projectPath As String
-   projectPath = App.Path
-    
-   Shell "explorer.exe " & projectPath, vbNormalFocus
-
-End Sub
-
-Private Sub cmdAdicionar_Click()
+Private Sub mAdicionar_Click()
    Dim snippetName As String
    Dim snippetText As String
    
@@ -215,7 +248,7 @@ Private Sub cmdAdicionar_Click()
  
 End Sub
 
-Private Sub cmdRemover_Click()
+Private Sub mRemover_Click()
     ' Verifica se snippet selecionado
     If listSnippet.SelCount = 0 Then ' ou If listSnippet.ListIndex >= 0 Then
         MsgBox "Nenhum snippet selecionado para remover", vbInformation, "DALÇÓQUIO AUTOMAÇÃO"
@@ -242,7 +275,7 @@ Private Sub cmdRemover_Click()
    
 End Sub
 
-Private Sub cmdEditar_Click()
+Private Sub mEditar_Click()
    ' Verifica se snippet selecionado
    If listSnippet.SelCount = 0 Then ' ou listSnippet.ListIndex >= 0
       MsgBox "Nenhum snippet selecionado para editar", vbInformation, "DALÇÓQUIO AUTOMAÇÃO"
@@ -261,7 +294,7 @@ Private Sub cmdEditar_Click()
 
 End Sub
 
-Private Sub cmdSalvar_Click()
+Private Sub mSalvar_Click()
    Dim snippetText As String
    Dim snippetName As String
    
@@ -428,7 +461,7 @@ Private Sub QuickSort(arr() As String, left As Integer, right As Integer)
     Dim i As Integer
     Dim j As Integer
     Dim pivot As String
-    Dim temp As String
+    Dim Temp As String
 
     i = left
     j = right
@@ -442,9 +475,9 @@ Private Sub QuickSort(arr() As String, left As Integer, right As Integer)
             j = j - 1
         Wend
         If i <= j Then
-            temp = arr(i)
+            Temp = arr(i)
             arr(i) = arr(j)
-            arr(j) = temp
+            arr(j) = Temp
             i = i + 1
             j = j - 1
         End If

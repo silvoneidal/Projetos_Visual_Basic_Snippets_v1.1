@@ -1,13 +1,14 @@
 long mediaAnalog(){
-	int media=10;
-  	long int soma=0;
-  	// Amostras
-  	for(int x=media; x>0; x--){
-    	soma+=analogRead(portAN); 
+    int media=10;
+    long int soma=0;
+    // Amostras
+    for(int x=media; x>0; x--){
+        soma+=analogRead(portAN); 
       	delay(1); 
-  	}
-  	// Média
-  	return=soma/media;
+    }
+    // Média
+    return=soma/media;
   
 }// mediaAnalog
+
 

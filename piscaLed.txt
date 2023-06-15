@@ -1,7 +1,8 @@
 void piscaLed(byte _nPisca){
-	for(byte x=nPisca; x>0; x--){
-		digitalWrite(portLed, HIGH); delay(200);
-		digitalWrite(portLed, LOW); delay(200);
-	}
+    for(byte x=nPisca; x>0; x--){
+	digitalWrite(portLed, HIGH); delay(200);
+	digitalWrite(portLed, LOW); delay(200);
+    }
 
 } // end piscaLed
+
