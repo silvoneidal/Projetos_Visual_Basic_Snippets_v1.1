@@ -24,7 +24,7 @@ Begin VB.Form Form1
       Caption         =   "Salvar [=]"
       Height          =   375
       Left            =   10080
-      TabIndex        =   8
+      TabIndex        =   5
       Top             =   10680
       Width           =   2055
    End
@@ -32,7 +32,7 @@ Begin VB.Form Form1
       Caption         =   "Editar[-]"
       Height          =   375
       Left            =   7920
-      TabIndex        =   7
+      TabIndex        =   4
       Top             =   10680
       Width           =   2055
    End
@@ -51,14 +51,14 @@ Begin VB.Form Form1
       Height          =   495
       Left            =   0
       MultiLine       =   -1  'True
-      TabIndex        =   6
+      TabIndex        =   8
       Top             =   10080
       Width           =   3495
    End
    Begin VB.ListBox listSnippet 
       Height          =   10635
       Left            =   0
-      TabIndex        =   0
+      TabIndex        =   6
       Top             =   0
       Width           =   3495
    End
@@ -72,7 +72,7 @@ Begin VB.Form Form1
       Caption         =   "Snippet ->"
       Height          =   375
       Left            =   1800
-      TabIndex        =   5
+      TabIndex        =   1
       Top             =   10680
       Width           =   1695
    End
@@ -80,7 +80,7 @@ Begin VB.Form Form1
       Caption         =   "Copiar [[]"
       Height          =   375
       Left            =   -120
-      TabIndex        =   4
+      TabIndex        =   0
       Top             =   10680
       Width           =   1815
    End
@@ -89,7 +89,7 @@ Begin VB.Form Form1
       Left            =   3480
       MultiLine       =   -1  'True
       ScrollBars      =   1  'Horizontal
-      TabIndex        =   3
+      TabIndex        =   7
       Top             =   0
       Width           =   8655
    End
@@ -97,7 +97,7 @@ Begin VB.Form Form1
       Caption         =   "Remover [x]"
       Height          =   375
       Left            =   5760
-      TabIndex        =   2
+      TabIndex        =   3
       Top             =   10680
       Width           =   2055
    End
@@ -105,7 +105,7 @@ Begin VB.Form Form1
       Caption         =   "Adicionar [+]"
       Height          =   375
       Left            =   3600
-      TabIndex        =   1
+      TabIndex        =   2
       Top             =   10680
       Width           =   2055
    End

@@ -1,7 +1,6 @@
 long mediaAnalog(){
 	int media=10;
   	long int soma=0;
-
   	// Amostras
   	for(int x=media; x>0; x--){
     	soma+=analogRead(portAN); 
@@ -11,3 +10,4 @@ long mediaAnalog(){
   	return=soma/media;
   
 }// mediaAnalog
+
