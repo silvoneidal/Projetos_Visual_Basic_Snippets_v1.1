@@ -99,6 +99,9 @@ Begin VB.Form Form1
             Caption         =   "White"
          End
       End
+      Begin VB.Menu mHelp 
+         Caption         =   "Help"
+      End
    End
 End
 Attribute VB_Name = "Form1"
@@ -177,6 +180,22 @@ Private Sub mSnippet_Click()
 
 End Sub
 
+Private Sub mHelp_Click()
+    Dim filePath As String
+    filePath = App.Path & "\help.html" ' Substitua pelo caminho do arquivo HTML desejado
+
+    ' Abre o arquivo HTML no navegador padrão
+    Shell "rundll32.exe url.dll,FileProtocolHandler " & filePath, vbNormalFocus
+End Sub
+
+'Private Sub txtSnippets_DblClick()
+'   Dim projectPath As String
+'   projectPath = App.Path
+'
+'   Shell "explorer.exe " & projectPath, vbNormalFocus
+'
+'End Sub
+
 Private Sub txtSnippet_DblClick()
    PopupMenu mTexto
    
@@ -205,14 +224,6 @@ Private Sub listSnippet_DblClick()
    'MsgBox "O snippet foi copiado para a área de transferência (Ctrl+V para colar).", vbInformation, "DALÇÓQUIO AUTOMAÇÃO"
    
 End Sub
-
-'Private Sub txtSnippets_DblClick()
-'   Dim projectPath As String
-'   projectPath = App.Path
-'
-'   Shell "explorer.exe " & projectPath, vbNormalFocus
-'
-'End Sub
 
 Private Sub mAdicionar_Click()
    Dim snippetName As String
