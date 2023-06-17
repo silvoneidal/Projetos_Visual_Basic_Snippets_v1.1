@@ -341,12 +341,6 @@ Private Sub listSnippets_Click()
 End Sub
 
 Private Sub listSnippets_DblClick()
-   ' Verifica se snippet selecionado
-   If listSnippets.SelCount = 0 Then ' ou listSnippets.ListIndex >= 0
-      MsgBox "Nenhum snippet selecionado para copiar", vbInformation, "DALÇÓQUIO AUTOMAÇÃO"
-      Exit Sub
-   End If
-      
    Dim snippetName As String
    snippetName = listSnippets.List(listSnippets.ListIndex)
    

@@ -35,7 +35,9 @@ Será copiado o conteúdo do snippet selecionado para área de transferência
 Em seguida você deve usar o "Ctrl+V" do teclado para colar no local desejado.
 
 
-*Todos os snippets serão salvos na pasta deste projeto, nos arquivos chamado nomedosnippets.txt
+*Todos os snippets serão salvos na pasta deste projeto.
+ O nome dos snippets são salvos no arquivo chamado snippets.txt
+ O conteúdo dos snippets são salvos nos arquivos chamado nomedosnippet.txt
 
 
 
