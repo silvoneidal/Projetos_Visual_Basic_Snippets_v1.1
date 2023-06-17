@@ -1,16 +1,33 @@
-Snippet-GUI_v1.1
+DALÇÓQUIO AUTOMAÇÃO
+Snippets_v1.1
 
 Atalho:
 Crie um atalho do executável para área de trabalho.
 
 
-Lista de Snippets:
+Menu de operação:
 
-Menu -> Editor -> Snippet
-Abre e Fecha o editor de snippet.
+Menu -> Snippet -> Abrir
+Abre o editor de texto para snippet.
+
+Menu -> Snippet -> Fechar
+Fecha o editor de texto para snippet.
+
+Menu -> Snippet -> Salvar 
+Salva um novo snippet, 
+ou uma alteração do snippet selecionado na lista de snippets.
+
+Menu -> Snippet -> Excluir
+Exclui o snippet selecionado na lista de snnipets.
+
+Menu -> Snippet -> Renomear
+Renomear o snippet selecionado na lista de snnipets.
 
 Menu -> Color -> Black ou White
 Altera a cor de fundo e texto do formulário.
+
+Menu -> Help
+Abre help no explorer.
 
 Para "Copiar"
 Duplo click na lista de snippets
@@ -18,34 +35,7 @@ Será copiado o conteúdo do snippet selecionado para área de transferência
 Em seguida você deve usar o "Ctrl+V" do teclado para colar no local desejado.
 
 
-Editor de Snippets:
-
-Para abrir o menu do editor, dê um duplo click no editor de snippet
-
-Menu "Editar"
-Selecione um snippet na lista de snippets.
-Click no menu "Editar"
-Será buscado o conteúdo do snippet selecionado.
-
-Menu "Salvar"
-Faça as alterações necessárias no conteúdo do snippet
-Click no menu "Salvar"
-Seu snippet será atualizado com as alterações.
-
-Menu "Adicionar"
-Crie ou cole o conteúdo para um novo snippet na caixa de texto.
-Click no menu "Adcionar"
-De um nome para o snippet na caixa de mensagem.
-Click "OK"
-Seu novo snippet aparecerá na lista de snippets.
-
-Menu "Remover"
-Selecione um snippet na lista de snippets.
-Click no menu "Remover"
-Seu snippet desaparecerá da lista de snippets.
-
-
-*Todos os snippets serão criados na pasta deste projeto como um arquivo de texto.
+*Todos os snippets serão salvos na pasta deste projeto, nos arquivos chamado nomedosnippets.txt
 
 
 
